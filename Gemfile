@@ -5,6 +5,9 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.8'
 # Use postgresql as the database for Active Record
 gem 'pg'
+group :development do
+  gem 'sqlite3'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,3 +40,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'twitter-bootstrap-rails'
+gem 'rails_12factor', group: :production
+ruby "2.1.5"
