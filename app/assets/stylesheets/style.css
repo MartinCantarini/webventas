@@ -5,7 +5,7 @@
 .headerr{
 	width: 100%;
 	height: 150px;
-	background-image: url(asset-path('menu_logo.jpeg'))
+	background-color: red;
 }
 .containerr{
 	width: 100%;
