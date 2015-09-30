@@ -31,6 +31,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  config.serve_static_assets = true
   config.assets.compile = true
   config.assets.digest = true
   # Raises error for missing translations
