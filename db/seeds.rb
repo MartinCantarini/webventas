@@ -52,3 +52,5 @@
 	@categoria.save
 	@categoria=Category.new(name:"Salud y Belleza")
 	@categoria.save
+
+	

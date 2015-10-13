@@ -10,13 +10,14 @@
       <br><br>
       <div class="row">
               <div class="col-md-2"></div>
-              <div class="col-md-6"><img src="#" width="300px" height="300px"></div>
-              <div class="col-md-4"><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id)%></div>
+              <div class="col-md-6"><img src="http://b-smart.co.th/wp-content/uploads/2014/07/not-found-300x300.png" width="300px" height="300px"><br></div>
+              <br>
+              <div class="col-md-4"><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%></div>
 
       </div>
       <div class="row">
               <div class="col-md-2"></div>
-              <div class="col-md-10"><h5>Pecio: <%=@article.price%></h5></div>
+              <div class="col-md-10"><h5>Pecio: $<%=@article.price%></h5></div>
       </div>
       <div class="row">
               <div class="col-md-2"></div>
@@ -52,11 +53,3 @@
 </body>
 </html>
 <center>
-<p>
-<a href="http://jigsaw.w3.org/css-validator/check/referer">
-    <img style="border:0;width:88px;height:31px"
-        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-        alt="¡CSS Válido!" />
-    </a>
-</p>
-</center>
