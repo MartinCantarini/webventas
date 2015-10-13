@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
+	#dependencias
 	belongs_to :user
-	has_many :comments
+	has_many :comments, dependent: :destroy
+
 	validates :name, presence: true
 	validates :price, presence: true
 	validates :description, presence: true

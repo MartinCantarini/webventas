@@ -1,2 +1,14 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<br><br><br><br>
+<h1>Nueva categoria</h1>
+<%=bootstrap_form_for(@category) do |f|%>
+	<%=f.text_field :name, label:"Nombre de categoría"%>
+	<%=f.submit%>
+<%end%>
+</body>
+</html>

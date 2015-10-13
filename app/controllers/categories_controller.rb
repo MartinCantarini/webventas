@@ -1,9 +1,16 @@
 class CategoriesController < ApplicationController
   def new
-    @category=Category.new(params_category)
+    @category=Category.new;
   end
 
   def create
+    @category=Category.new(params_category);
+    if @category.save
+      redirect_to categories_path
+    else
+      flash.now[:error] = "No se puedo crear una nueva categoria, intente nuevamente en unos segundos"
+      redirect_to categories_path
+     end 
   end
 
   def edit
