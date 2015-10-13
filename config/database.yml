@@ -83,5 +83,3 @@ test:
 production:
   <<: *default
   database: myapp_production
-  username: postgres
-  password: basededatos 
