@@ -43,10 +43,10 @@
   </div>
 
   <div class="field">
-    <%if User.count==0%>
-      <%= f.hidden_field :role , :value => "admin" %>
+    <%if User.count!=0%>
+      <%= f.hidden_field :role , :value => "user" %>
     <%else%>
-       <%= f.hidden_field :role , :value => "user" %>
+       <%= f.hidden_field :role , :value => "admin" %>
     <%end%>    
   </div>
   <br>

@@ -20,11 +20,7 @@
             <li class="active"><a href="/">Home</a></li>
             <%if user_signed_in?%>
               <li><a href="/carts/new">Mi carrito</a></li>
-              <%if current_user.role=="admin"%>
-                <li><a href="/users/edit"><%= current_user.email+" (ADMINISTRADOR DEL SITIO)"%></a></li>
-              <%else%>
-                <li><a href="/users/edit"><%= current_user.email %></a></li>
-              <%end%>
+              <li><a href="/users/edit"><%= current_user.email %></a></li>
               <li><a href="/users/sign_out">Salir</a></li>
             <%else%>  
               <li><a href="/users/sign_in">Iniciar Sesión</a></li>
