@@ -15,8 +15,8 @@
 		</tr>
 		<%@article.each do |article|%>
 		<tr>
-			<%if article.user_id==params[:format].to_i%>	
-				<td><%=article.name%></td>
+			<%if article.user_id==params[:format].to_i%>
+				<td><%=link_to article.name,article_path(article.id)%></td>
 				<td><%=article.name%></td>
 				<td><%=article.ubicacion%></td>
 				<td>

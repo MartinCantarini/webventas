@@ -21,8 +21,10 @@
 				<td><%=article.price%></td>
 				<td><%=article.ubicacion%></td>
 				<td>
+					<%if user_signed_in? and (article.user_id==current_user.id or current_user.role="admin")%>
 					<%=link_to "Editar",edit_article_path(article.id), :class=>"btn btn-primary"%>
 					<%=link_to "Eliminar",borrar_path(article.id),:class=>"btn btn-danger"%>
+					<%end%>
 				</td>
 			<%elsif params[:format].nil?%> 
 				<td><%=link_to article.name,article_path(article.id)%></td>
