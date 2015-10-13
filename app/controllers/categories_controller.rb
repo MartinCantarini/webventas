@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def new
+    @category=Category.new(params_category)
   end
 
   def create
@@ -21,5 +22,8 @@ class CategoriesController < ApplicationController
   end
 
   def delete
+  end
+  def params_category
+    params.require(:category).permit([:name]);
   end
 end
