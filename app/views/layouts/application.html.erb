@@ -45,7 +45,9 @@
               <li><a href="#">Sobre el sitio</a></li>
               <li><a href="#">Mapa del sitio</a></li>
               <li><br></li>
+              <%if user_signed_in?%>
               <%=current_user.role%>
+              <%end%>
             <%if user_signed_in? && current_user.role=="admin"%>
                   <div id="menu_admin">
                         <label style="color:red;">MENU ADMINISTRADOR</label>
