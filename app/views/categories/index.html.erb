@@ -1,0 +1,19 @@
+<html>
+	<header></header>
+	<body>
+		<h1>Categorias</h1>
+			<table class="table table-hover">
+				<tr>
+					<th>Nombre</th>
+				</tr>
+				<%@categories.each do |category|%>
+				<tr>
+					<td><%=category.name%></td>
+				</tr>
+
+				<%end%>
+			</table>
+			<%=link_to "Agregar categoria", new_category_path,:class=>"btn btn-default"%>		
+	</body>
+</html>
+

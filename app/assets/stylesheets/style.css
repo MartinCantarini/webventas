@@ -1,109 +1,43 @@
 *{
-	margin: 0px;
-	padding: 0px;
-}
-.headerr{
-	width: 100%;
-	height: 150px;
-	background-color: red;
-}
-.containerr{
-	width: 100%;
-	height: 1200px;
-	background-color: white;
+	margin:0;
+	padding: 0;
+	color: #006600;
 
 }
-
-.perdi{
-	margin-left: 15%;
-	width: 70%;
-	height: 250px;	
-	background-image: url("olvidar.jpeg");
+h1{
+	color: 006600;
+}
+h2{
+	color: 006600;
 }
 
-.loginn {
-	margin-left: 15%;
-	width: 70%;
-	height: 250px;
-	background-image: url("loginfondo.jpeg");
-}
-.carrito {
-	margin-left: 15%;
-	width: 70%;
+div#container{
+	margin:auto; 
+	margin-top: 50px;
+	width: 1200px;
 	height: 600px;
-	background-image: url("carritofondo.jpeg");
-}
-.new_user{
-	margin-left: 15%;
-	width: 70%;
-	height: 550px;
-	background-image: url("new_user.jpeg");
-}
-.producto{
-	margin-left: 15%;
-	width: 70%;
-	height: 200px;
 	background-color: white;
 }
-.producto2{
-	margin-left: 15%;
-	width: 70%;
-	height: 400px;
-	background-color: white;
-}
-.containerdescripcion{
-	background-color: white;
-}
-.comprapaso1{
-	margin-left: 15%;
-	width: 70%;
-	height: 400px;
-	background-image: url("paso1compra.jpeg");
-}
-.containerizquierda { 
-	position: relative; 
-	width: 50%; 
-	top: 0; 
-	left: 0; 
-	float: left; 
-	height: 200px; } 
-.containerderecha { 
-	position: relative; 
-	width: 50%; 
-	top: 0; 
-	left: 0; 
-	float: right; 
-	height: 200px; }
-div#menuizq{
 
-	width:100px;
-	margin-top: -15px;
-	margin-right: 100px;
-	background-color: transparent;
+div#box-izq{
 	float:left;
-
-
-}
-div#publicidades{
-
+	margin-top: 100px;
+	height: 600px;
 	width:200px;
-	height: 300px;
-	margin-top: 8px;
-	background-image: url("publi.jpeg");
-	float:left;
+	background-color: white;
+}
 
+div#box-central{
+	float: left;
+	margin-left: 50px;
+	height:auto;
+	width:850px;
+	background-color: white;
+    overflow: hidden;
+    max-width: 850px;
 
 }
-div#publicidades2{
 
-	width:200px;
-	height: 300px;
-	margin-top: 8px;
-	background-image: url("descuento2.jpeg");
-	float:left;
-
-
-}
 div#menuizq ul{
 	list-style: none;
 }
@@ -112,7 +46,7 @@ div#menuizq ul li{
 	margin-top: 15px;
 	font-family: tahoma;
 	font-size: 18px;
-	background-color: #337ab7;
+	background-color: #222;
 	width: 160px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -124,27 +58,12 @@ div#menuizq ul li{
 
 div#menuizq ul li:hover{
 	padding-left:60px;
+	
 }
 
-
-div#categorias{
-	width:800px;
-	height: 950px;
-	background-color: #eee;
-	float: left;
-	margin-right: 100px;
-}	
-
-
-a:hover{
-
-	background-color: white;
+p{
+	color:black;
 }
-
-div#menulink{
-	width:400px;
-	height: 100px;
-	background-color: transparent;
-	float: right;
-	margin-left: 130px;
+blue{
+	color:#337ab7
 }

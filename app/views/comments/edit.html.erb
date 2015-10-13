@@ -1,0 +1,5 @@
+<h1>Editar comentario</h1>
+<%=bootstrap_form_for(@comment) do |c|%>
+	<%=c.text_field :content , label:"Comentario:"%>
+	<%= c.submit%>
+<%end%>

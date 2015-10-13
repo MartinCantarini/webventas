@@ -1,0 +1,58 @@
+	  
+	  <%Comment.all.each do |comentario|%>
+	  <%@usuario=User.find(comentario.user_id)%>
+	  <br>
+	  <%if @article.id==comentario.article_id%>
+	  <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-10">
+              	<div class="alert alert-info" role="alert"><p><%=@usuario.email+" dijo: "+comentario.content%></p>
+              	  <%if user_signed_in?%>	
+	              	<%=link_to "Indicar como indevido", add_indevido_path(comentario.id)%>
+	              	<%if comentario.user_id==current_user.id or current_user.role=="admin"%>	
+	              		<%=" |"%><%=link_to "Editar",edit_comment_path(comentario.id)%><%=" |"%>
+						<%=link_to "Eliminar",borrar_comment_path(comentario.id)%>
+					<%end%>	
+	              <%end%>
+	              <div class"respuestas_del_comentario">
+	              <%Answer.all.each do |respuesta|%>
+	              	<%if respuesta.comment_id==comentario.id%>
+	              		<%=User.find(@article.user_id).email + " dijo: "+ respuesta.content%>
+	              	<%end%>
+	              <%end%>
+	              </div>
+              	</div>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-10">
+              <%if user_signed_in? and @article.user_id==current_user.id%>
+	              <%= form_tag new_answertoparam_path do %>
+	                <label for="contenido" style="color:black;">Respuesta</label>
+	                <%= text_field_tag :contenido_respuesta %>
+	                <%= hidden_field_tag :id_comentario, comentario.id%>
+	                <%= hidden_field_tag :id_usuario_respuesta, current_user.id%>
+	                <%= submit_tag "Enviar" %>
+	              <% end %>
+	          <%end%> 
+	          </div>   
+      </div>
+      <%end%>
+      <%end%>       
+      
+	  
+	  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11"><h3>Nuevo comentario:</h3></div>
+   	  <div class="col-md-12"><br></div>
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+	      <%if user_signed_in?%>
+	              <%= form_tag new_commentforparam_path do %>
+	                <%= text_field_tag :contenido_comentario %>
+	                <%= hidden_field_tag :id_articulo_comentario, @article.id%>
+	                <%= hidden_field_tag :id_usuario_comentario, current_user.id%>
+	                <%= submit_tag "Enviar" %>
+	              <% end %>
+	      <%end%>
+	  </div>
+	  </div>    

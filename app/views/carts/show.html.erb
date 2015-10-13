@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi carrito</title>
+</head>
+<body>
+	<h1>Mi carrito</h1>
+	<%cartid=@cart.id%>
+	
+	<table class="table table-hover">
+		<tr>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Acción</th>
+		</tr>
+			<%Articleincart.all.each do |articleincart|%>
+				<%if articleincart.id_cart==cartid%>
+		<tr>
+			<td><%=link_to Article.find(articleincart.id_article).name,article_path(Article.find(articleincart.id_article).id)%></td>
+			<td><%=Article.find(articleincart.id_article).price%></td>
+			<td><%=link_to "Borarr",articleincarts_destroy_path,:class=>"btn btn-danger"%></td>
+		</tr>
+			<%end%>
+		<%end%>		
+	</table>
+	<td><%=link_to "Comprar!!!","#",:class=>"btn btn-danger"%></td>
+
+</body>
+</html>

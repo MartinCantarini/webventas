@@ -1,0 +1,81 @@
+<div class="containerr">
+	<br><br><br><br>
+	<div class="new_user">
+	<div class="col-md-1"></div>
+	<div class="col-md-11"><h2>Publicar un nuevo producto</h2></div>
+		<%= bootstrap_form_for(@article) do |a| %>
+  			<div class="row">
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<label><%=a.text_field :name, label:"Nombre*"%></label>
+    				
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>
+  			<div class="row">
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<label><%=a.text_field :price, label:"Precio*"%></label>
+    				
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>
+  			<div class="row">
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<label><%=a.text_field :ubicacion, label:"Ubicación*"%></label>
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>
+  			<div class="row">	
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<label><%=a.text_field :description, label:"Descripción*"%></label>
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>
+  			<div class="row">	
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<label><%=a.text_field :foto, label:"Foto*"%></label>
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>
+  			<div class="row">	
+  				<div class="col-md-2"></div>
+  				<div class="col-md-6">
+  				<div class="form-group">
+    				<%= a.collection_select(:category_id, Category.all, :id, :name) %>	
+  				</div>
+  				</div>
+  				<div class="col-md-4"></div>
+  			</div>		
+  			<div class="row">
+  			<div class="col-md-2"></div>
+  			<div class="col-md-10">
+  			<%= a.hidden_field :user_id , :value => current_user.id%>
+        <%= a.submit%>
+			</div>
+			</div>
+			<%end%>
+			<br>
+			<div class="row">
+  			<div class="col-md-2"></div>
+  			<div class="col-md-10">
+  			<h5>*Datos obligatorios</h5>
+			</div>
+			
+			
+		</form>	
+	</div>
+</div>

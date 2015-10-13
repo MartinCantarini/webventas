@@ -1,4 +1,39 @@
 Rails.application.routes.draw do
+
+
+  get 'articleincarts/new'
+
+  get 'articleincarts/create'
+
+  get 'articleincarts/show'
+
+  get 'articleincarts/index'
+
+  get 'articleincarts/edit'
+
+  get 'articleincarts/update'
+
+  get 'articleincarts/destroy'
+
+  get 'carts/new'
+  get 'carts/add_article'
+  get 'carts/create'
+
+  get 'carts/index'
+
+  get 'carts/show'
+
+  get 'carts/edit'
+
+  get 'carts/update'
+
+  get 'carts/destroy'
+  get '/misarticulos' => 'articles#misarticulos', as: :my_articles
+  resources :articles
+  resources :categories
+  resources :comments
+  resources :answers
+  devise_for :users
   get 'users/new'
 
   get 'users/create'
@@ -18,13 +53,18 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'users#home'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  match 'comments/new' => 'comments#new', via: [:post], as: :new_commentforparam
+  match 'answers/new' => 'answers#new', via: [:post], as: :new_answertoparam
 
+
+  get 'articles/:id/delete' => 'articles#delete', as: :borrar
+  get 'carts/:id/delete' => 'carts#destroy', as: :borrar_cart
+  get 'comments/:id/delete' => 'comments#destroy', as: :borrar_comment
+  get 'comments/:id/add_indevido' => 'comments#add_indevido', as: :add_indevido
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

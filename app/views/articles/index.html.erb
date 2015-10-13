@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="container-gral">
+	<h1>Articulos publicados</h1>
+	<%@idact=params[:format]%>
+	<table class="table table-hover">
+		<tr>
+			<th>Nombre</th>
+			<th>Precio</th>
+			<th>Ubicación</th>
+			<th>Acciones</th>
+		</tr>
+		<%@articles.each do |article|%>
+		<tr>
+			<%if article.category_id == @idact.to_i%>	
+				<td><%=link_to article.name,article_path(article.id)%></td>
+				<td><%=article.price%></td>
+				<td><%=article.ubicacion%></td>
+				<td>
+					<%=link_to "Editar",edit_article_path(article.id), :class=>"btn btn-primary"%>
+					<%=link_to "Eliminar",borrar_path(article.id),:class=>"btn btn-danger"%>
+				</td>
+			<%elsif params[:format].nil?%> 
+				<td><%=link_to article.name,article_path(article.id)%></td>
+				<td><%=article.price%></td>
+				<td><%=article.ubicacion%></td>
+				<td>
+					<%if user_signed_in? and (article.user_id==current_user.id or current_user.role="admin")%>
+						<%=link_to "Editar",edit_article_path(article.id), :class=>"btn btn-primary"%>
+						<%=link_to "Eliminar",borrar_path(article.id),:class=>"btn btn-danger"%>
+					<%end%>
+				</td>
+			
+			<%end%>	
+		</tr>
+		<%end%>
+	</table>
+	<%if user_signed_in?%>
+		<%=link_to "Mis productos",my_articles_path(current_user.id),:class=>"btn btn-default"%>
+	<%end%>
+	</div>
+</body>
+</html>

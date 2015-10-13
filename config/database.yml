@@ -22,10 +22,10 @@ default: &default
   pool: 5
 
 development:
-  adapter: sqlite3
   pool: 5
   timeout: 5000
-  database: db/myapp_development
+  adapter: sqlite3
+  database: db/myapp_development.sqlite3
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
