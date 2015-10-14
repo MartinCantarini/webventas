@@ -6,11 +6,10 @@ class CartsController < ApplicationController
       x=1;
     end
     end
-    if x == 1
+    if x != 1
       @cart=Cart.new;
       @cart.user_id=current_user.id;
       @cart.save
-      x=0;
     end
     redirect_to carts_show_path    
   end
