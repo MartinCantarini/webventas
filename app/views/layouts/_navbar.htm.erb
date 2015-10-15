@@ -1,0 +1,27 @@
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ArgenShopping</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+
+            <li class="active"><a href="/">Home</a></li>
+            <%if user_signed_in?%>
+              <li><a href="/carts/new">Mi carrito</a></li>
+              <li><a href="/users/edit"><%= current_user.email %></a></li>
+              <li><a href="/users/sign_out">Salir</a></li>
+            <%else%>  
+              <li><a href="/users/sign_in">Iniciar Sesión</a></li>
+              <li><a href="/users/sign_up">Registrarse</a></li>
+            <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>

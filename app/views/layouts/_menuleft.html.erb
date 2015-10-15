@@ -1,0 +1,23 @@
+      <nav>
+          <ul class="nav nav-pills nav-stacked span2">
+              <li><a href="/" >Buscar un producto</a></li>
+            <%if user_signed_in?%>
+              <li><a href="/users/edit">Mi Perfil</a></li>
+              <li><a href="/articles/new">Publicar un producto</a></li>
+            <%end%>
+              <li><a href="#" >¿Cómo comprar?</a></li>
+              <li><a href="#">¿Cómo vender?</a></li>
+              <li><a href="#">Sobre el sitio</a></li>
+              <li><a href="#">Mapa del sitio</a></li>
+              <li><br></li>
+
+            <%if user_signed_in? && current_user.role=="admin"%>
+                  <div id="menu_admin">
+                        <label style="color:red;">MENU ADMINISTRADOR</label>
+                        <li><a href="/articles">Administrar Artículos</a></li>
+                        <li><a href="/comments">Administrar Comentarios</a></li>
+                        <li><a href="/categories">Administrar Categorias</a></li>
+                  </div>
+            <%end%>  
+            </ul>
+      </nav>

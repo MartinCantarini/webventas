@@ -7,16 +7,18 @@
         <div class="row">
         <br>
             <div class="col-md-3"></div>
-            <div class="col-md-8">
+            <center>
+            <div class="col-md-6">
 
                 <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
                     
-                    <%= text_field_tag :search, params[:search] %>
-                    <%= submit_tag "Search" %>
+                    <%= text_field_tag :search, params[:search] ,size:50,placeholder:"Ingrese aquí el nombre del producto que desea buscar",class:"form-control"%>
+                    <%= submit_tag "Buscar!", class: "btn btn-default btn-sm" %>
                 <% end %>
 
             </div>
-            <div class="col-md-3"></div>
+           </center>
+           <div class="col-md-3"></div>
          </div>
          <div class="row">
             <br><br>
