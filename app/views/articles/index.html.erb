@@ -9,6 +9,7 @@
 	<%@idact=params[:format]%>
 	<table class="table table-hover">
 		<tr>
+			<th>Foto</th>
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Ubicación</th>
@@ -17,6 +18,11 @@
 		<%@articles.each do |article|%>
 		<tr>
 			<%if article.category_id == @idact.to_i%>	
+				<td>
+				<%unless article.foto_url.nil? %>
+					<%= image_tag article.foto_url(:thumb) %>
+				<%end%>
+				</td> 
 				<td><%=link_to article.name,article_path(article.id)%></td>
 				<td><%=article.price%></td>
 				<td><%=article.ubicacion%></td>
@@ -26,7 +32,12 @@
 					<%=link_to "Eliminar",borrar_path(article.id),:class=>"btn btn-danger"%>
 					<%end%>
 				</td>
-			<%elsif params[:format].nil?%> 
+			<%elsif params[:format].nil?%>
+				<td>
+				<%unless article.foto_url.nil? %>
+					<%= image_tag article.foto_url(:thumb) %>
+				<%end%>
+				</td> 
 				<td><%=link_to article.name,article_path(article.id)%></td>
 				<td><%=article.price%></td>
 				<td><%=article.ubicacion%></td>

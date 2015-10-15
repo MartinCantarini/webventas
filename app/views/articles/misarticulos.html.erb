@@ -8,6 +8,7 @@
 	<h1>Mis artículos</h1>
 	<table class="table table-hover">
 		<tr>
+			<th>Foto</th>
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Ubicación</th>
@@ -16,8 +17,13 @@
 		<%@article.each do |article|%>
 		<tr>
 			<%if article.user_id==params[:format].to_i%>
+				<td>
+				<%unless article.foto_url.nil? %>
+					<%= image_tag article.foto_url(:thumb) %>
+				<%end%>
+				</td>
 				<td><%=link_to article.name,article_path(article.id)%></td>
-				<td><%=article.name%></td>
+				<td><%="$"+article.price%></td>
 				<td><%=article.ubicacion%></td>
 				<td>
 					<%=link_to "Editar",edit_article_path(article.id), :class=>"btn btn-primary"%>

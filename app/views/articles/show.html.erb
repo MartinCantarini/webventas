@@ -10,7 +10,7 @@
       <br><br>
       <div class="row">
               <div class="col-md-2"></div>
-              <div class="col-md-6"><%unless @article.foto_url.nil? %><%= image_tag @article.foto_url %><br/><%end%><br></div>
+              <div class="col-md-6"><%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/><%end%><br></div>
               <br>
               <div class="col-md-4"><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%></div>
 

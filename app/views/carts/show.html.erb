@@ -9,15 +9,22 @@
 	
 	<table class="table table-hover">
 		<tr>
+			<th>Foto</th>
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Acción</th>
 		</tr>
 			<%Articleincart.all.each do |articleincart|%>
 			<%if articleincart.id_cart==cartid%>
+				<%article=Article.find(articleincart.id_article)%>
 		<tr>
-			<td><%=link_to Article.find(articleincart.id_article).name,article_path(Article.find(articleincart.id_article).id)%></td>
-			<td><%=Article.find(articleincart.id_article).price%></td>
+			<td>
+				<%unless article.foto_url.nil? %>
+					<%= image_tag article.foto_url(:thumb) %>
+				<%end%>
+			</td>
+			<td><%=link_to article.name,article_path(article.id)%></td>
+			<td><%=article.price%></td>
 			<td><%=link_to "Borarr",articleincarts_destroy_path,:class=>"btn btn-danger"%></td>
 		</tr>
 			<%end%>
