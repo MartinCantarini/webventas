@@ -56,7 +56,10 @@ gem 'bootstrap_form'
 gem 'devise'
 gem 'rolify'
 
+#imagenes
 
+gem 'carrierwave'
+gem 'cloudinary'
 
 
 

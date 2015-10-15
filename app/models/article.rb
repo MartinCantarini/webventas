@@ -13,4 +13,8 @@ class Article < ActiveRecord::Base
 	def self.search(search)
   		where("name LIKE ?", "%#{search}%") 
 	end
+
+	#attr_accessible :foto
+
+	mount_uploader :foto, FotoUploader
 end
