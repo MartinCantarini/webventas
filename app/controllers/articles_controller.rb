@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
     else
       flash.now[:error] = "No se puedo actualizar la información del artículo, intente nuevamente en unos segundos"
       redirect_to articles_path 
-     end
+    end
   end
 
   def misarticulos
