@@ -1,7 +1,7 @@
 *{
 	margin:0;
 	padding: 0;
-	color: #006600;
+	color: #555;
 
 }
 h1{
@@ -21,7 +21,7 @@ div#container{
 
 div#box-izq{
 	float:left;
-	margin-top: 100px;
+	margin-top: 50px;
 	height: 600px;
 	width:200px;
 	background-color: white;
@@ -32,11 +32,12 @@ div#box-central{
 	margin-left: 50px;
 	height:auto;
 	width:850px;
-	background-color: white;
+	background-color: #eee;
     overflow: hidden;
     max-width: 850px;
-
+    min-height: 600px;
 }
+
 
 div#menuizq ul{
 	list-style: none;
