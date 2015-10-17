@@ -24,7 +24,7 @@
 				<%end%>
 				</td> 
 				<td><%=link_to article.name,article_path(article.id)%></td>
-				<td><%=article.price%></td>
+				<td><%="$"+article.price%></td>
 				<td><%=article.ubicacion%></td>
 				<td>
 					<%if user_signed_in? and (article.user_id==current_user.id or current_user.role=="admin")%>
@@ -39,7 +39,7 @@
 				<%end%>
 				</td> 
 				<td><%=link_to article.name,article_path(article.id)%></td>
-				<td><%=article.price%></td>
+				<td><%="$"+article.price%></td>
 				<td><%=article.ubicacion%></td>
 				<td>
 					<%if user_signed_in? and (article.user_id==current_user.id or current_user.role=="admin")%>

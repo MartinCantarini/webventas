@@ -1,7 +1,7 @@
 *{
 	margin:0;
 	padding: 0;
-	color: #555;
+	color: #296429;
 
 }
 h1{
@@ -32,7 +32,7 @@ div#box-central{
 	margin-left: 50px;
 	height:auto;
 	width:850px;
-	background-color: #eee;
+	background-color: white;
     overflow: hidden;
     max-width: 850px;
     min-height: 600px;
