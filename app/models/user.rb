@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :answers , dependent: :destroy
   belongs_to :cart , dependent: :destroy
   
-  #rolify
+rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
