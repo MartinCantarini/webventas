@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
 	validates :category_id, presence: true
 
 	def self.search(search)
-  		where("name ILIKE ?", "%#{search}%") 
+  		where("name LIKE ?", "%#{search}%") 
 	end
 
 	#attr_accessible :foto
