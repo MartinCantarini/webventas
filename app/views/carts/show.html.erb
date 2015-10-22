@@ -5,12 +5,13 @@
 </head>
 <body>
 	<h1>Mi carrito</h1>
-	<%=cartid=@cart.id%>
+	<%cartid=@cart.id%>
 	
 	<table class="table table-hover">
 		<tr>
 			<th>Foto</th>
 			<th>Nombre</th>
+			<th>Cantidad</th>
 			<th>Precio</th>
 			<th>Acción</th>
 		</tr>
@@ -24,13 +25,14 @@
 				<%end%>
 			</td>
 			<td><%=link_to article.name,article_path(article.id)%></td>
+			<td><%="X"%></td>
 			<td><%=article.price%></td>
-			<td><%=link_to "Borarr",articleincarts_destroy_path,:class=>"btn btn-danger"%></td>
+			<td><%=link_to "Borarr",borrar_article_in_cart_path(articleincart.id_cart,articleincart.id_article),:class=>"btn btn-danger"%></td>
 		</tr>
 			<%end%>
 			<%end%>		
 	</table>
-	<td><%=link_to "Comprar!!!","#",:class=>"btn btn-danger"%></td>
+	<td><%=link_to "Comprar!!!","#",:class=>"btn btn-default"%></td>
 
 </body>
 </html>

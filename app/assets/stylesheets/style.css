@@ -21,7 +21,7 @@ div#container{
 
 div#box-izq{
 	float:left;
-	margin-top: 50px;
+	margin-top: 75px;
 	height: 600px;
 	width:200px;
 	background-color: white;
@@ -62,6 +62,31 @@ div#menuizq ul li:hover{
 	
 }
 
+div#box-central-foto--article{
+	float: left;
+	margin-left: 50px;
+	height:auto;
+	width:850px;
+	background-color: white;
+    overflow: hidden;
+    max-width: 850px;
+    min-height: 300px;
+}
+
+div#pic--article{
+	float:left;
+	max-height: 300px;
+	max-width: 300px;
+	
+}
+div#buy-like-somedata--article{
+	float:left;
+	margin-left: 50px;
+	max-height: 300px;
+	width: 400px;
+	max-width: 400px;	
+	background-color: white;
+}
 p{
 	color:black;
 }

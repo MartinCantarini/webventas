@@ -9,24 +9,23 @@
       </div>
       <br><br>
       <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-6"><%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/><%end%><br></div>
-              <br>
-              <div class="col-md-4"><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%></div>
-
+              <div id="box-central-foto--article">
+                  <div id="pic--article">
+                      <%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/><%end%>
+                  </div>
+                  <div id="buy-like-somedata--article">
+                      <h4>$<%=@article.price%></h5><br>
+                      <h5>Ubicación: <%=@article.ubicacion%></h5><br>
+                      <h5>Fecha de publicación: <%=@article.created_at%></h5><br>
+                      <center><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%>
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                        </button>
+                      </center>
+                  </div>
+              </div>
       </div>
-      <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-10"><h5>Pecio: $<%=@article.price%></h5></div>
-      </div>
-      <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-10"><h5>Ubicación: <%=@article.ubicacion%></h5></div>
-      </div>
-      <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-10"><h5>Fecha de publicación: <%=@article.created_at%></h5></div>
-      </div>
+     
       <br>
       <div class="row">
               <div class="col-md-1"></div>

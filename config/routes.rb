@@ -63,6 +63,7 @@ Rails.application.routes.draw do
 
   get 'articles/:id/delete' => 'articles#delete', as: :borrar
   get 'carts/:id/delete' => 'carts#destroy', as: :borrar_cart
+  get 'articleincarts/:id_cart/:id_article/destroy'  => 'articleincarts#destroy' , as: :borrar_article_in_cart
   get 'comments/:id/delete' => 'comments#destroy', as: :borrar_comment
   get 'comments/:id/add_indevido' => 'comments#add_indevido', as: :add_indevido
   # Example resource route (maps HTTP verbs to controller actions automatically):

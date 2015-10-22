@@ -27,5 +27,14 @@ class ArticleincartsController < ApplicationController
   end
 
   def destroy
+    @articleincart=Articleincart.find_by(id_cart: params[:id_cart], id_article: params[:id_article])
+    @articleincart.destroy;
+    if @articleincart.save
+      flash[:notice] = "Producto eliminado correctamente del carrito"
+      redirect_to :root
+    else
+      flash.now[:error] = "No se puedo actualizar la información del carrito, intente nuevamente en unos segundos"
+      redirect_to :root
+    end
   end
 end
