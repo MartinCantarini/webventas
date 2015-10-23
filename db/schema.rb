@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015170533) do
+ActiveRecord::Schema.define(version: 20151023021659) do
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20151015170533) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.integer  "user_id"
+    t.integer  "likes",       default: 0, null: false
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
@@ -74,6 +75,13 @@ ActiveRecord::Schema.define(version: 20151015170533) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "userlikearticles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"

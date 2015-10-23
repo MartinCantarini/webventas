@@ -59,7 +59,18 @@ class ArticlesController < ApplicationController
     @article=Article.all
   end
 
-
+  def add_like
+    @article=Article.find(params[:id]);
+    @article.likes=@article.likes+1;
+    @article.save;
+    if(Userlikearticle.haslike(@article.id,current_user.id)=="no")
+      @userlikearticle=Userlikearticle.new();
+      @userlikearticle.article_id=@article.id;
+      @userlikearticle.user_id=current_user.id;
+      @userlikearticle.save;
+    end
+    redirect_to article_path;
+  end  
   def params_article
     params.require(:article).permit([:name, :price, :description, :foto, :ubicacion, :category_id, :user_id]);
   end   

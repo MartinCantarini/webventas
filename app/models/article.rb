@@ -17,4 +17,9 @@ class Article < ActiveRecord::Base
 	#attr_accessible :foto
 
 	mount_uploader :foto, FotoUploader
+
+	def self.cant_likes(id_article)
+		articulo=find(id_article)
+		return articulo.likes
+	end 	
 end

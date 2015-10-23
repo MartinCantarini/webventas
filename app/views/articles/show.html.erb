@@ -14,14 +14,18 @@
                       <%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/><%end%>
                   </div>
                   <div id="buy-like-somedata--article">
-                      <h4>$<%=@article.price%></h5><br>
+                      <h3 style="color:red;">$<%=@article.price%></h3><br>
                       <h5>Ubicación: <%=@article.ubicacion%></h5><br>
                       <h5>Fecha de publicación: <%=@article.created_at%></h5><br>
-                      <center><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%>
-                        <button type="button" class="btn btn-default" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                        </button>
-                      </center>
+                          <%if user_signed_in?%>
+                              <center><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%>
+                              <%if Userlikearticle.haslike(@article.id,current_user.id)=="no"%>
+                                      <%=link_to "Me gusta!" , add_like_to_article_path(@article.id), :class=>"btn btn-primary btn-sm"%>
+                              <%end%>
+                              
+                          <%end%>
+                          <h5><%="Este artículo le gusta a #{Article.cant_likes(@article.id)} personas"%><h5></center>
+
                   </div>
               </div>
       </div>

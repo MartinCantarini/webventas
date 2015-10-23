@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
 
 
+  get 'userlikearticles/new'
+
+  get 'userlikearticles/create'
+
+  get 'userlikearticles/edit'
+
+  get 'userlikearticles/update'
+
+  get 'userlikearticles/delete'
+
+  get 'userlikearticles/show'
+
+  get 'userlikearticles/index'
+
   get 'articleincarts/new'
 
   get 'articleincarts/create'
@@ -66,6 +80,9 @@ Rails.application.routes.draw do
   get 'articleincarts/:id_cart/:id_article/destroy'  => 'articleincarts#destroy' , as: :borrar_article_in_cart
   get 'comments/:id/delete' => 'comments#destroy', as: :borrar_comment
   get 'comments/:id/add_indevido' => 'comments#add_indevido', as: :add_indevido
+  
+
+  get 'articles/:id/add_like' => 'articles#add_like', as: :add_like_to_article
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
