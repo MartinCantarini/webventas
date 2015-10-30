@@ -35,13 +35,11 @@ include Cloudinary::CarrierWave
    version :thumb do
      process :resize_to_fit => [75, 75]
    end
-
+    version :novedades do
+     process :resize_to_fill=> [150, 150]
+   end
    version :display do
      process :resize_to_fill => [300, 300]
-   end
-
-  version :novedades do
-     process :resize_to_fill => [150, 150]
    end
 
   # Add a white list of extensions which are allowed to be uploaded.
