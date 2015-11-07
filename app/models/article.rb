@@ -7,7 +7,6 @@ class Article < ActiveRecord::Base
 	validates :price, presence: true
 	validates :description, presence: true
 	validates :ubicacion, presence: true
-	validates :foto, presence: true
 	validates :category_id, presence: true
 
 	def self.search(search)
