@@ -8,7 +8,13 @@ class ArticleincartsController < ApplicationController
       end
     end
     @articleincart.id_cart=@idofcart.to_s
-    @articleincart.save
+    if @articleincart.save
+      flash[:notice]="Producto agregado a mi carrito"
+      redirect_to :root
+    else
+      flash[:alert]="No se pudo completar la acción, intente nuevamente en unos segundos"
+      redirect_to :root
+    end    
   end
 
   def create

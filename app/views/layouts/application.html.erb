@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Myapp</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArgenShopping</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
+  
+
+    <%= csrf_meta_tags %>
+  </head>
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -19,7 +25,7 @@
 
             
             <%if user_signed_in?%>
-              <li><a href="/carts/new">Mi carrito</a></li>
+              <li><%=link_to "Mi carrito", carts_show_path%></li>
               <li><a href="/users/edit"><%= current_user.email %></a></li>
               <li><a href="/users/sign_out">Salir</a></li>
             <%else%>  

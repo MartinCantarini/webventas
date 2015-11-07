@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get 'carts/update'
 
   get 'carts/destroy'
+  get 'carts/home'
   get '/misarticulos' => 'articles#misarticulos', as: :my_articles
   resources :articles
   resources :categories
@@ -62,11 +63,12 @@ Rails.application.routes.draw do
 
   get 'users/delete'
 
+  get 'users/home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'users#home'
+   root 'carts#home'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

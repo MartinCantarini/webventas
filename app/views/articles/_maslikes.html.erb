@@ -1,0 +1,6 @@
+<%@articleslast4=Article.order(likes: :desc).limit(5)%>
+            <%@articleslast4.all.each do |articleslast4|%>
+            <%=link_to article_path(articleslast4.id) do %>
+               <%= image_tag articleslast4.foto_url(:novedades) %>
+            <%end%>    
+<%end%>
