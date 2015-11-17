@@ -15,15 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-function init(){    
-  $(document).ready(function(){
-  $('[data-toggle="popover"]').popover()
-})}
-
-function mostraroculto(){
-	$(document).ready(function(){ 
-   $('#alternar-respuesta-ej1').on('click',function(){
-      $('#respuesta-ej1').toggle('slow');
-   });
-});
-} 

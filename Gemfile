@@ -62,10 +62,10 @@ gem 'rolify'
 gem 'carrierwave'
 gem 'cloudinary'
 
-gem 'owlcarousel-rails'
+#gem 'owlcarousel-rails'
 
 #hacer documentos pdf
 
-gem 'prawn'
+#gem 'prawn'
 
 ruby "2.1.5"
