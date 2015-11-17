@@ -6,16 +6,18 @@ class ArticlesController < ApplicationController
 
   def create
     @article=Article.new(params_article)
+    article_id=@article.id
     if @article.save
-      redirect_to my_articles_path(current_user.id)
+      flash[:notice]="Artículo publicado con éxito"
+      redirect_to articles_path(article_id)
     else
-      flash.now[:error] = "No se puedo publicar un nuevo artículo, intente nuevamente en unos segundos"
-      render action: "new"  
+      flash[:alert] = "No se puedo publicar un nuevo artículo, intente nuevamente en unos segundos"
+      redirect_to :root  
      end 
   end
 
   def index
-      if params[:search]
+      if params[:search] 
         @articles = Article.search(params[:search])
       else
         @articles = Article.all
@@ -33,12 +35,14 @@ class ArticlesController < ApplicationController
 
   def update
     @article=Article.find(params[:id])
+    article_id=@article.id
     @article.update(params_article)
     if @article.save
-      redirect_to articles_path
+      flash[:notice]="Artículo actualizado con éxito"
+      redirect_to article_path(article_id)
     else
-      flash.now[:error] = "No se puedo actualizar la información del artículo, intente nuevamente en unos segundos"
-      render action: "edit"  
+      flash[:alert] = "No se puedo actualizar la información del artículo, intente nuevamente en unos segundos"
+      redirect_to :root
      end
 
   end
@@ -50,8 +54,8 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Producto eliminado correctamente"
       redirect_to articles_path
     else
-      flash.now[:error] = "No se puedo actualizar la información del artículo, intente nuevamente en unos segundos"
-      redirect_to articles_path 
+      flash.now[:alert] = "No se puedo actualizar la información del artículo, intente nuevamente en unos segundos"
+      redirect_to :root 
     end
   end
 
@@ -68,9 +72,11 @@ class ArticlesController < ApplicationController
       @userlikearticle.article_id=@article.id;
       @userlikearticle.user_id=current_user.id;
       @userlikearticle.save;
+      flash[:notice]="Artículo votado correctamente"
     end
     redirect_to article_path;
-  end  
+  end
+
   def params_article
     params.require(:article).permit([:name, :price, :description, :foto, :ubicacion, :category_id, :user_id]);
   end   

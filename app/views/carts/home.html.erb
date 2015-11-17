@@ -1,8 +1,9 @@
 <html>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body onload="mostraroculto()">
     <div id="searchbar">
         <div class="row">
         <br>
@@ -10,17 +11,23 @@
             <center>
             <div class="col-md-6">
 
-                <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-                    
-                    <%= text_field_tag :search, params[:search] ,size:50,placeholder:"Ingrese aquí el nombre del producto que desea buscar",class:"form-control"%>
-                    <%= submit_tag "Buscar!", class: "btn btn-default btn-sm" %>
-                <% end %>
-
+                <%=render "searchbar"%>
+                
             </div>
            </center>
            <div class="col-md-3"></div>
          </div>
     </div>
+
+
+
+
+
+
+
+
+
+
     <div id="novedades">
     <div class="row">
         <br><br>

@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
     <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
-  
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <%= csrf_meta_tags %>
   </head>
@@ -44,6 +45,7 @@
               <li><a href="/" >Buscar un producto</a></li>
             <%if user_signed_in?%>
               <li><a href="/users/edit">Mi Perfil</a></li>
+              <li><a href="/carts/miscompras">Mis compras</a></li>
               <li><a href="/articles/new">Publicar un producto</a></li>
             <%end%>
               <li><a href="#" >¿Cómo comprar?</a></li>

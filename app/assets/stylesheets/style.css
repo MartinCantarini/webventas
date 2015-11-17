@@ -10,7 +10,18 @@ h1{
 h2{
 	color: 006600;
 }
-
+bronce{
+color:#CD7F32;
+font-weight: bold;
+}
+plata{
+color:#848482;
+font-weight: bold;
+}
+oro{
+color:#EAC117;
+font-weight: bold;
+}
 div#container{
 	margin:auto; 
 	margin-top: 50px;
@@ -94,7 +105,7 @@ blue{
 	color:#337ab7
 }
 
-
-
-
-
+textarea{
+	background-color:#eee;
+	border:none;
+}

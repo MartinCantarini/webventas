@@ -64,6 +64,8 @@ gem 'cloudinary'
 
 gem 'owlcarousel-rails'
 
+#hacer documentos pdf
 
+gem 'prawn'
 
 ruby "2.1.5"

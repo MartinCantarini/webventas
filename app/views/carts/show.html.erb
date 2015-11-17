@@ -33,7 +33,7 @@
 		<tr>
 			<td></td>
 			<td></td>
-			<td><h3>Total: $<%=total%></h3><br><%=link_to "Comprar!!!","#",:class=>"btn btn-default"%></td>
+			<td><h3>Total: $<%=total%></h3><br><%=link_to "Comprar!!!", @cart.paypal_url(carts_sale_successful_url),:class=>"btn btn-default"%></td>
 		</tr>			
 	</table>
 	

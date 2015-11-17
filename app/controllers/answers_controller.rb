@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
     @answer.user_id=params[:id_usuario_respuesta]
     @answer.comment_id=params[:id_comentario]
     @answer.save;
+    flash[:notice]="Respuesta exitosa"
     redirect_to articles_path
   end
 

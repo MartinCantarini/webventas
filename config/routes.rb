@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 
   get 'carts/destroy'
   get 'carts/home'
+  get 'carts/sale_successful'
+  get 'carts/miscompras'
+  
   get '/misarticulos' => 'articles#misarticulos', as: :my_articles
   resources :articles
   resources :categories

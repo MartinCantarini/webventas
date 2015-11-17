@@ -7,7 +7,7 @@
   				<div class="col-md-2"></div>
   				<div class="col-md-6">
   				<div class="form-group">
-    				<label><%=a.text_field :name, label:"Nombre*"%></label>
+    				<label><%=a.text_field :name, label:"Nombre*", required: "true"%></label>
     				
   				</div>
   				</div>
@@ -17,7 +17,7 @@
   				<div class="col-md-2"></div>
   				<div class="col-md-6">
   				<div class="form-group">
-    				<label><%=a.text_field :price, label:"Precio*", value: '0000.0' , help: "La cifra decimal debe ir separada por . "%></label>
+    				<label><%=a.text_field :price, label:"Precio*", value: '0000.0' , help: "La cifra decimal debe ir separada por . ", required: "true"%></label>
     				
   				</div>
   				</div>
@@ -27,7 +27,7 @@
   				<div class="col-md-2"></div>
   				<div class="col-md-6">
   				<div class="form-group">
-    				<label><%=a.text_field :ubicacion, label:"Ubicación*"%></label>
+    				<label><%=a.text_field :ubicacion, label:"Ubicación*", required: "true"%></label>
   				</div>
   				</div>
   				<div class="col-md-4"></div>
@@ -36,7 +36,7 @@
   				<div class="col-md-2"></div>
   				<div class="col-md-6">
   				<div class="form-group">
-    				<label><%=a.text_field :description, label:"Descripción*"%></label>
+    				<label><%=a.text_field :description, label:"Descripción*", required: "true"%></label>
   				</div>
   				</div>
   				<div class="col-md-4"></div>

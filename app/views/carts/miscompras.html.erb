@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Mis compras</h1>
+	<%nrocompra=0%>
+	<%@miscompras.each do |mc|%>
+		<%if mc.user_id==current_user.id%>
+		<%nrocompra=nrocompra+1%>
+		<h2 style="color: #A828A8;">Compra nro: <%=nrocompra%> (<%=mc.created_at.strftime("%d %b. %Y")%>-<%=mc.created_at.strftime("%H:%M")%>)</h2>
+			<%Articleincart.all.each do |ac|%>
+				<%if ac.id_cart==mc.id%>
+					<%article=Article.find(ac.id_article)%>
+					<%useridarticle=article.user_id%>
+					<h3><u><%=article.name%></u></h3><br>
+					Precio: $<%=article.price%><br>
+					Cantidad:<%="1"%><br>
+					Descripción:<%=article.description%><br>
+					Ubicación:<%=article.ubicacion%><br>
+					<h4>Información de contacto con el vendedor</h4>
+					<%userarticle=User.find(useridarticle)%><br>
+					Nombre:<%=userarticle.name%><br>
+					Apellido:<%=userarticle.lastname%><br>
+					Teléfono:<%=userarticle.tel%><br>
+					Email:<%=userarticle.email%><br>
+					
+				<%end%>
+			<%end%>
+		<%end%>
+		<HR width=70% align="left" size=2 color="green">
+	<%end%>		
+</body>
+</html>

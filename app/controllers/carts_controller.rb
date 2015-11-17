@@ -16,7 +16,17 @@ class CartsController < ApplicationController
       if cart.user_id==current_user.id
         @cart=cart
       end  
-    end 
+    end
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = OrderPdf.new
+        pdf.header_afip(@cart.id)
+        send_data pdf.render , filename: "Comprobante_afip_#{current_user.name}-#{current_user.lastname}-#{Time.now}.pdf"
+                              
+      
+      end
+    end     
   end
 
   def edit
@@ -44,6 +54,32 @@ class CartsController < ApplicationController
       @cart.save
     end
     end
+  end 
+
+  def sale_successful
+  Cart.all.each do |cart|
+      if cart.user_id==current_user.id
+        @cart=cart
+      end  
+  end
+  @cartfinal=@cart.id
+  @cart.state="exitosa"
+  @cart.created_at=Time.now
+  @cart.save
+  @cart=Cart.new;
+  @cart.user_id=current_user.id;
+
+  if @cart.save
+    flash[:notice]="Venta realizada con exito"
+  else
+    flash[:alert]="Error, por favor contactese con nosotros"
   end  
+  
+end
+
+
+def miscompras
+  @miscompras=Cart.where(state: "exitosa");
+end 
 
 end

@@ -5,7 +5,11 @@ class CommentsController < ApplicationController
         @comment.content=params[:contenido_comentario];
         @comment.article_id=params[:id_articulo_comentario]
         @comment.user_id=params[:id_usuario_comentario]
-        @comment.save
+        if @comment.save
+          flash[:notice]="Comentario exitoso"
+        else
+          flash[:alert]"El comentario no se pudo crear, por favor intente nuevamente en unos segundos"
+        end
         redirect_to article_path(params[:id_articulo_comentario])
   end
 
@@ -26,13 +30,27 @@ class CommentsController < ApplicationController
 
   def update
      @comment=Comment.find(params[:id])
+     article_id=@comment.article_id
      @comment.update(params.require(:comment).permit(:content))
+     if @comment.save
+        flash[:notice]="Comentario actualizado"
+        redirect_to article_path(article_id)
+     else
+        flash[:alert]="El comentario no se pudo actualizar, vuelva a intentarlo nuevamente en unos segudos"  
+        redirect_to :root
+     end   
   end
 
   def destroy
     @comment=Comment.find(params[:id])
+    article_id=@comment.article_id
     @comment.destroy
-    redirect_to comments_path
+    if @comment.save
+      flash[:notice]="Comentario eliminado con éxito"
+    else
+      flash[:alert]="El comentario no pudo ser eliminado, por favor intente nuevamente en unos segundos"
+    end     
+    redirect_to article_path(article_id)
   end
 
   def params_comment
@@ -45,7 +63,11 @@ class CommentsController < ApplicationController
     cant_actual=@cant_indevidos
     cant_nueva=cant_actual+1
     @comment.cantindevidos=cant_nueva
-    @comment.save
+    if @comment.save
+      flash[:notice]="Gracias por ayudarnos!"
+    else  
+      flash[:alert]="El comentario no pudo ser marcado como exitoso, por favor intente nuevamente en unos segundos"
+    end
     redirect_to article_path(@comment.article_id)
   end
 

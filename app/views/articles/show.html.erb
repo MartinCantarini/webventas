@@ -12,12 +12,15 @@
       
               <div id="box-central-foto--article">
                   <div id="pic--article">
-                      <%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/><%end%>
+                      <%unless @article.foto_url.nil? %><%= image_tag @article.foto_url(:display) %><br/>
+                      <%else%>
+                          <img src="http://img2.wikia.nocookie.net/__cb20120819040410/naruto/es/images/8/84/Sin_imagen_disponible.jpg" alt="sinimagen">
+                      <%end%>
                   </div>
                   <div id="buy-like-somedata--article">
                       <h3 style="color:red;">$<%=@article.price%></h3><br>
-                      <h5>Ubicación: <%=@article.ubicacion%></h5><br>
-                      <h5>Fecha de publicación: <%=@article.created_at%></h5><br>
+                      <h5>>Ubicación: <%=@article.ubicacion%></h5><br>
+                      <h5>>Fecha de publicación: <%=@article.created_at%></h5><br>
                           <%if user_signed_in?%>
                               <center><%=link_to "Agregar a carrito" , articleincarts_new_path(@article.id), :class=>"btn btn-default"%>
                               <%if Userlikearticle.haslike(@article.id,current_user.id)=="no"%>
@@ -25,7 +28,17 @@
                               <%end%>
                               
                           <%end%>
-                          <h5><%="Este artículo le gusta a #{Article.cant_likes(@article.id)} personas"%><h5></center>
+                          <h5><%=">El dueño de este artículo es categoría "%>
+                          <%category=User.getCategory(@article.user_id)%>
+                          <%if category=="Bronce"%>
+                            <bronce><%=category%></bronce>
+                          <%elsif category=="Plata"%>
+                            <plata><%=category%></plata>
+                          <%else category=="Oro"%>  
+                            <oro><%=category%></oro>
+                           <%end%> 
+                          <%=" y tiene "%><b><%=User.getVentas(@article.user_id) %></b><%=" ventas concretadas con exito"%></h5>
+                          <h5><%=">Este artículo le gusta a "%><b><%=Article.cant_likes(@article.id)%></b> <%="personas!"%><h5></center>
 
                   </div>
               </div>

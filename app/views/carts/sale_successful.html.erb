@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Venta realizada con éxito</h1>
+<h2>Gracias por confiar en nosotros!!!!</h2>
+<p>A continuación le facilitamos los datos de los productos que adquirió, junto con la información de contacto de los vendedores. Esta información está disponible en la sección "Mis compras"</p><br><br>
+<%Articleincart.all.each do |ac|%>
+	<%if ac.id_cart==@cartfinal%>
+		<%article=Article.find(ac.id_article)%>
+		<%useridarticle=article.user_id%>
+		<h3><u><%=article.name%></u></h3><br>
+		Precio:<%=article.price%><br>
+		Cantidad:<%="1"%><br>
+		Descripción:<%=article.description%><br>
+		Ubicación:<%=article.ubicacion%><br>
+		<h4>Información de contacto con el vendedor</h4>
+		<%userarticle=User.find(useridarticle)%><br>
+		Nombre:<%=userarticle.name%><br>
+		Apellido:<%=userarticle.lastname%><br>
+		Teléfono:<%=userarticle.tel%><br>
+		Email:<%=userarticle.email%><br>
+		<HR width=70% align="left" size=2 color="green">
+	<%end%>
+<%end%>	
+</body>
+</html>
