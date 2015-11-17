@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
         if @comment.save
           flash[:notice]="Comentario exitoso"
         else
-          flash[:alert]"El comentario no se pudo crear, por favor intente nuevamente en unos segundos"
+          flash[:alert]="El comentario no se pudo crear, por favor intente nuevamente en unos segundos"
         end
         redirect_to article_path(params[:id_articulo_comentario])
   end
