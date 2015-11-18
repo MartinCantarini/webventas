@@ -14,13 +14,13 @@ class User < ActiveRecord::Base
  def self.getCategory(param1)
     user=User.find(param1)
     
-    if (user.cantventas==null)or(user.cantventas < 100) 
+    if (!user.cantventas)or(user.cantventas < 100) 
       return "Bronce"
     elsif (user.cantventas>=100) and (user.cantventas<=500)
       return "Plata"
     else
       return "Oro"
-    end}
+    end
  end
 
  def self.getVentas(param1)

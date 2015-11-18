@@ -16,17 +16,7 @@ class CartsController < ApplicationController
       if cart.user_id==current_user.id
         @cart=cart
       end  
-    end
-    respond_to do |format|
-      format.html
-      format.pdf do 
-        pdf = OrderPdf.new
-        pdf.header_afip(@cart.id)
-        send_data pdf.render , filename: "Comprobante_afip_#{current_user.name}-#{current_user.lastname}-#{Time.now}.pdf"
-                              
-      
-      end
-    end     
+    end    
   end
 
   def edit
@@ -57,6 +47,7 @@ class CartsController < ApplicationController
   end 
 
   def sale_successful
+
   Cart.all.each do |cart|
       if cart.user_id==current_user.id
         @cart=cart
@@ -70,6 +61,26 @@ class CartsController < ApplicationController
   @cart.user_id=current_user.id;
 
   if @cart.save
+    Articleincart.all.each do |ac|
+      if ac.id_cart==@cartfinal
+        articulo=Article.find(ac.id_article)
+        id_user_vendedor=articulo.user_id
+        userv=User.find(id_user_vendedor)
+        if !userv.cantventas
+          userv.cantventas=1 
+        else
+          userv.cantventas=userv.cantventas+1
+        end
+        userv.save   
+      end  
+    end
+    userc=User.find(current_user.id)
+    if !userc.cantcompras
+      userc.cantcompras=1
+    else
+      userc.cantcompras=userc.cantcompras+1  
+    end
+    userc.save  
     flash[:notice]="Venta realizada con exito"
   else
     flash[:alert]="Error, por favor contactese con nosotros"

@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   
   get '/misarticulos' => 'articles#misarticulos', as: :my_articles
   resources :articles
+  get '/promotions' =>'articles#promotions', as: :promotions
   resources :categories
   resources :comments
   resources :answers

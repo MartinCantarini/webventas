@@ -18,7 +18,12 @@
                       <%end%>
                   </div>
                   <div id="buy-like-somedata--article">
+                      <%if @article.category_id==9 or @article.category_id==10%>
+                      <s><h3 style="color:red;">$<%=@article.price%></h3></s><br>
+                      <h3 style="color:green;">$<%=@article.price.to_i-@article.price.to_i*0.25%></h3><br>
+                      <%else%>
                       <h3 style="color:red;">$<%=@article.price%></h3><br>
+                      <%end%>
                       <h5>>Ubicación: <%=@article.ubicacion%></h5><br>
                       <h5>>Fecha de publicación: <%=@article.created_at%></h5><br>
                           <%if user_signed_in?%>

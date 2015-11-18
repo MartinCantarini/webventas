@@ -80,4 +80,7 @@ class ArticlesController < ApplicationController
   def params_article
     params.require(:article).permit([:name, :price, :description, :foto, :ubicacion, :category_id, :user_id]);
   end   
+
+  def promotions
+  end  
 end

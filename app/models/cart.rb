@@ -3,7 +3,7 @@ class Cart < ActiveRecord::Base
 	has_many :articlesincart, dependent: :destroy
 	def paypal_url(return_url)
 	  values = {
-	    :business => 'argenshopping2@gmail.com',
+	    :business => 'argenshopping3@gmail.com',
 	    :cmd => '_cart',
 	    :upload => 1,
 	    :return => return_url,
@@ -12,6 +12,9 @@ class Cart < ActiveRecord::Base
 	  articleincart = Articleincart.where(id_cart: id)
 	  articleincart.each_with_index do |item, index|
 	    article=Article.find(item.id_article)
+	    if article.category_id==9 or article.category_id==9 
+	    	article.price=(article.price.to_i)-(article.price.to_i*0.25)
+	    end	
 	    values.merge!({
 	      "amount_#{index+1}" => article.price,
 	      "item_name_#{index+1}" => article.name,
