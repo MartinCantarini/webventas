@@ -9,8 +9,8 @@ class Article < ActiveRecord::Base
 	validates :ubicacion, presence: true
 	validates :category_id, presence: true
 
-	include PgSearch
-	pg_search_scope :search, against: [:name,:price,:description,:ubicacion]
+	#include PgSearch
+	#pg_search_scope :search, against: [:name,:price,:description,:ubicacion]
 
 	def self.text_search(query)
 		if query.present?
