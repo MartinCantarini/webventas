@@ -71,5 +71,7 @@ gem 'cloudinary'
 
 #Busqueda full text
 #gem 'texticle', require:'texticle/rails'
+gem 'pg_search'
+
 
 ruby "2.1.5"
