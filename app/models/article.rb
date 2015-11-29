@@ -12,7 +12,11 @@ class Article < ActiveRecord::Base
 	include PgSearch
 	pg_search_scope :search, against: [:name,:price,:description,:ubicacion]
 	def self.search(query)
+		if query.present?
 			search(query)
+		else
+			scoped	
+		end	
 	end
 	#def self.search(search)
   	#	where("name @@ :q or price @@ :q or ubicacion @@ :q or description @@ :q", q: search) 
