@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 	validates :category_id, presence: true
 
 	def self.search(search)
-  		where("name @@ :q or price @@ :q or ubicacion @@ :q or description @ :q", q: search) 
+  		where("name @@ :q or price @@ :q or ubicacion @@ :q or description @@ :q", q: search) 
 	end
 
 	#attr_accessible :foto
