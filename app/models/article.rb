@@ -9,20 +9,9 @@ class Article < ActiveRecord::Base
 	validates :ubicacion, presence: true
 	validates :category_id, presence: true
 
-	#include PgSearch
-	#pg_search_scope :search, against: [:name,:price,:description,:ubicacion]
-
-	def self.text_search(query)
-		if query.present?
-			search(query)
-		else
-			scoped
-		end
-	end			
-
-	#def self.search(search)
-  	#	where("name LIKE ? or price LIKE ? or ubicacion LIKE ? or description LIKE ?","%#{search}%","%#{search}%","%#{search}%","%#{search}%") 
-	#end
+	def self.search(search)
+  		where("name @@ :q or price @@ :q or ubicacion @@ :q or description @ :q", q: search) 
+	end
 
 	#attr_accessible :foto
 

@@ -70,6 +70,6 @@ gem 'cloudinary'
 #gem 'prawn'
 
 #Busqueda full text
-gem 'texticle', require:'texticle/rails'
+#gem 'texticle', require:'texticle/rails'
 
 ruby "2.1.5"
