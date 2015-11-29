@@ -10,7 +10,8 @@ class Article < ActiveRecord::Base
 	validates :category_id, presence: true
 
 	include PgSearch
-	pg_search_scope :search, against: [:name,:price,:description,:ubicacion]
+	pg_search_scope :search, against: [:name]
+	
 	def self.search(query)
 		if query.present?
 			search(query)
