@@ -17,8 +17,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
-      if params[:search] 
-        @articles = Article.search(params[:search])
+      if params[:query] 
+        @articles = Article.text_search(params[:query])
       else
         @articles = Article.all
       end

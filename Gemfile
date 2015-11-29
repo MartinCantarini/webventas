@@ -7,6 +7,7 @@ group :development do
  
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
 end
@@ -67,5 +68,8 @@ gem 'cloudinary'
 #hacer documentos pdf
 
 #gem 'prawn'
+
+#Busqueda full text
+gem 'texticle', require:'texticle/rails'
 
 ruby "2.1.5"
