@@ -10,10 +10,11 @@ class Article < ActiveRecord::Base
 	validates :ubicacion, presence: true
 	validates :category_id, presence: true
 
-	pg_search_scope :search, :against => [:name],
+	pg_search_scope :search, :against => [:name,:ubicacion,:price,:description],
+	:ignoring => :accents,
 	:using =>{
-		:tsearch=>{:any_word=>true}
-	}
+		:tsearch=>{:any_word=>true}}
+	
 	
 	#def self.search(query)
   	#	where("name @@ :q or price @@ :q or ubicacion @@ :q or description @@ :q", q: query) 
