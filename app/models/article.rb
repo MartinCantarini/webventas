@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
 	#dependencias
+	include PgSearch
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 
@@ -9,9 +10,14 @@ class Article < ActiveRecord::Base
 	validates :ubicacion, presence: true
 	validates :category_id, presence: true
 
-	def self.search(query)
-  		where("name @@ :q or price @@ :q or ubicacion @@ :q or description @@ :q", q: query) 
-	end
+	pg_search_scope :search, :against => [:name],
+	:using =>{
+		:tsearch=>{:any_word=>true}
+	}
+	
+	#def self.search(query)
+  	#	where("name @@ :q or price @@ :q or ubicacion @@ :q or description @@ :q", q: query) 
+	#end
 
 	#attr_accessible :foto
 
