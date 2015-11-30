@@ -11,7 +11,6 @@ class Article < ActiveRecord::Base
 	validates :category_id, presence: true
 
 	pg_search_scope :search, :against => [:name,:ubicacion,:price,:description],
-	:ignoring => :accents,
 	:using =>{
 		:tsearch=>{:any_word=>true}}
 	
