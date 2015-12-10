@@ -28,14 +28,14 @@
   </div>
 
   <div class="field">
-    <%= f.email_field :email, autocomplete: "off" ,label: "E-mail" %>
+    <%= f.email_field :email,label: "E-mail" %>
   </div>
 
   <div class="field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caracteres como mínimo)<br>(Debe incluir al menos una letra minúscula , una letra mayúscula y un dígito)</em>
     <% end %><br/>
-    <%= f.password_field :password, autocomplete: "off" , label: "Contraseña"%>
+    <%= f.password_field :password, label: "Contraseña"%>
   </div>
 
   <div class="field">
