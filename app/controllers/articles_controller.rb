@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   def create
     @article=Article.new(params_article)
     article_id=@article.id
+    @article.user_id=current_user.id #Aquí se encuntra la mejora mencionada
     if @article.save
       flash[:notice]="Artículo publicado con éxito"
       redirect_to articles_path(article_id)
@@ -30,7 +31,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article=Article.find(params[:id])
+      #Antes cualquier usuario podía editar el artículo
+      @article=Article.find(params[:id])
+      #Ahora solo puede hacerlo un usuario registrado y que se dueño del producto
+      if (!user_signed_in?)or(@article.user_id!=current_user.id)
+        flash[:alert] = "Usted debe estar registrado para ejecutar esta acción"
+        redirect_to :root
+      end  
   end
 
   def update

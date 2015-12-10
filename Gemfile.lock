@@ -78,6 +78,10 @@ GEM
     netrc (0.10.3)
     orm_adapter (0.5.0)
     pg (0.18.3-x86-mingw32)
+    pg_search (1.0.5)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -104,6 +108,8 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    recaptcha (1.0.2)
+      json
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rest-client (1.8.0-x86-mingw32)
@@ -166,8 +172,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pg_search
   rails (= 4.1.8)
   rails_12factor
+  recaptcha
   rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

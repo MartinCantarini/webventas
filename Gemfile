@@ -73,5 +73,6 @@ gem 'cloudinary'
 #gem 'texticle', require:'texticle/rails'
 gem 'pg_search'
 
+gem "recaptcha", require: "recaptcha/rails"
 
 ruby "2.1.5"

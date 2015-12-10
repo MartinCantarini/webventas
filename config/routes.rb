@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'carts/miscompras'
   
   get '/misarticulos' => 'articles#misarticulos', as: :my_articles
+  
   resources :articles
   get '/promotions' =>'articles#promotions', as: :promotions
   resources :categories

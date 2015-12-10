@@ -33,7 +33,7 @@
 
   <div class="field">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caracteres como mínimo)<br>(Debe incluir al menos una letra minúscula , una letra mayúscula y un dígito)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" , label: "Contraseña"%>
   </div>
@@ -45,6 +45,8 @@
   <div class="field">
       <%= f.hidden_field :role , :value => "user" %> 
   </div>
+  <br>
+  <%= recaptcha_tags %>
   <br>
   <div class="actions">
     <%= f.submit "Continuar" %>
