@@ -12,7 +12,7 @@
 
   
   <div class="field">
-    <%= f.text_field :username, label:"Nombre de usuario:"%>
+    <%= f.text_field :username,  autofocus: true,label:"Nombre de usuario:"%>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.email_field :email, autofocus: true, label: "E-mail" %>
+    <%= f.email_field :email, autocomplete: "off" ,label: "E-mail" %>
   </div>
 
   <div class="field">
